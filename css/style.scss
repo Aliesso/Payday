@@ -1,0 +1,241 @@
+a:hover {
+    text-decoration: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+#header {
+    padding: 15px 0;
+    width: 100%;
+    position: fixed;
+    color: #fff;
+    z-index: 100;
+    top: 0;
+    height: 0;
+    transition: .5s ease-in-out;
+    &.head-active {
+        background: black;
+        height: 80px;
+        .logo {
+            h2 {
+                color: blue;
+            }
+        }
+    }
+    .logo {
+        h2 {
+            font-family: 'Anton', sans-serif;
+            color: crimson;
+        }
+    }
+    .menu {
+        font-family: 'Bangers', cursive;
+        li {
+            padding: 15px 0px;
+            position: relative;
+            a {
+                color: rgb(192, 183, 183);
+                font-size: 20px;
+                padding: 10px;
+                &.active {
+                    color: blue;
+                }
+            }
+            &.droppedItem {
+                position: relative;
+                &:hover {
+                    .droppedMenu {
+                        opacity: 1;
+                        transform: translateY(0);
+                        .drpRight {
+                            &:hover {
+                                .dropdownmenu {
+                                    opacity: 1;
+                                    transform: translateY(0);
+                                }
+                            }
+                        }
+                    }
+                }
+                .droppedMenu {
+                    position: absolute;
+                    border: 1px solid crimson;
+                    top: 100%;
+                    left: 0;
+                    width: 200px;
+                    background: black;
+                    opacity: 0;
+                    transition: .4s ease-in-out;
+                    transform: translateY(-15px);
+                    .drpRight {
+                        .dropdownmenu {
+                            position: absolute;
+                            left: 100%;
+                            background: black;
+                            border: 1px solid crimson;
+                            width: 100%;
+                            opacity: 0;
+                            transition: .4s ease-in-out;
+                            transform: translateY(-15px);
+                            position: absolute;
+                            top: 0;
+                        }
+                    }
+                    li {
+                        padding: 5px;
+                        border-bottom: 1px solid crimson;
+                        cursor: pointer;
+                        a {
+                            padding: 10px;
+                            font-family: 'Xanh Mono', monospace;
+                            font-size: 18px;
+                        }
+                        i {
+                            position: absolute;
+                            right: 5px;
+                        }
+                    }
+                }
+            }
+            i {
+                color: rgb(192, 183, 183);
+                padding-left: 20px;
+            }
+        }
+    }
+}
+
+.main {
+    background-image: url(../image/page.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .slider {
+        width: 800px;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        padding-top: 150px;
+        ul {
+            position: relative;
+            left: 0;
+            transition: 4s ease-in-out;
+            li {
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        .next,
+        .prev {
+            position: absolute;
+            top: 60%;
+            transform: translateY(-50%);
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .next {
+            right: 20px;
+        }
+        .prev {
+            left: 20px;
+        }
+    }
+}
+
+.theme {
+    background-image: url(../image/payday.jpg);
+    padding: 250px 0;
+    background-size: cover;
+    background-position: center;
+    h3 {
+        color: #fff;
+        font-family: 'Bangers', cursive;
+        font-size: 4em;
+    }
+    a {
+        padding: 25px 50px;
+        border: 1px solid transparent;
+        background-color: crimson;
+        border-radius: 50px;
+        font-family: 'Bangers', cursive;
+        color: #fff;
+        font-size: 20px;
+        transition: .3s ease-in-out;
+        &:hover {
+            background-color: blue;
+        }
+    }
+}
+
+#chat {
+    width: 400px;
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    border: 1px solid #cccccc;
+    &.active {
+        display: none;
+    }
+    #this {
+        padding: 5px;
+        background: brown;
+        color: #fff;
+        i {
+            cursor: pointer;
+        }
+    }
+    main {
+        height: 350px;
+        overflow-y: scroll;
+        background: url(../image/chat-background.jpg);
+        background-size: cover;
+        background-position: center;
+        .message {
+            padding: 10px 5px;
+            width: 51%;
+            border-radius: 10px;
+            margin: 10px;
+            position: relative;
+            .time {
+                position: absolute;
+                top: 100%;
+                right: 15px;
+                color: #fff;
+            }
+            &.user {
+                background: #dddddd;
+                color: black;
+                float: right;
+            }
+            &.support {
+                background: goldenrod;
+                color: #fff;
+                float: left;
+            }
+        }
+    }
+}
+
+#mini-chat {
+    img {
+        width: 90px;
+        height: 90px;
+        padding: 10px;
+        background: goldenrod;
+        border-radius: 50%;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        cursor: pointer;
+    }
+}
